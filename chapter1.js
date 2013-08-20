@@ -26,6 +26,16 @@ var Chapter1 = {
       } 
     }
     return true;
+  },
+  //Implemnet a reverse function to reverse a string
+  ReverseString: function(input){
+    var stringArray = input.split(""),
+        reversedArray = [],
+        x;
+    for(x = stringArray.length - 1; x >= 0; x--){ //could have used array.reverse() here but defeats the purpose.
+      reversedArray.push(stringArray[x]); 
+    }
+    return reversedArray.join("");
   }
 };
 
