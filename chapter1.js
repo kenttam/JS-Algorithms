@@ -36,6 +36,50 @@ var Chapter1 = {
       reversedArray.push(stringArray[x]); 
     }
     return reversedArray.join("");
+  },
+  //Given two strings, write a method to decide if one is permutation of the other
+  IsPermutation: function(a, b){
+    //an N x N algorithm
+    if(a.length !== b.length){
+      return false;
+    }
+    var aArray = a.split(""),
+        bArray = b.split(""),
+        found = false,
+        x, y, currentChar;
+    for(x = 0; x < aArray.length; x++){
+      currentChar = aArray[x];
+      found = false;
+      for(y = 0; y < bArray.length; y++){
+        if(currentChar === bArray[y]){
+          bArray.splice(y, 1);
+          found = true;
+          break; 
+        }
+      } 
+      if(!found){
+        return false;
+      }
+      else if (bArray.length === 0){
+        return true;
+      }
+    }
+  },
+
+  IsPermutation2: function(a,b){
+    //assuming the sort function is n log n, this function will perform better than the first
+    if(a.length !== b.length){
+      return false;
+    }
+    var aArray = a.split("").sort(),
+        bArray = b.split("").sort(),
+        x;
+    for(x = 0; x < aArray.length; x++){
+      if(aArray[x] !== bArray[x]){
+        return false;
+      } 
+    }
+    return true;
   }
 };
 
