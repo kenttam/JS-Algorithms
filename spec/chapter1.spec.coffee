@@ -19,4 +19,7 @@ describe "Chapter 1", ->
       expect(Chapter1.IsPermutation2("abcde", "edbca")).toBe true
       expect(Chapter1.IsPermutation2("abccde", "edbca")).toBe false
       expect(Chapter1.IsPermutation2("abrde", "edbca")).toBe false
+  describe "ReplaceSpace", ->
+    it "can replace all spaces in a string with %20", ->
+      expect(Chapter1.ReplaceSpace("Mr John Smith")).toBe "Mr%20John%20Smith"
 
