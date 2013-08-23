@@ -107,6 +107,30 @@ var Chapter1 = {
       }
     }
     return stringArray.join("");
+  },
+  StringCompression: function(input){
+    var tempString = "",
+        x, currentChar, y, repeatedCount;
+    for(x = 0; x < input.length; x++){
+      currentChar = input[x]; 
+      tempString += currentChar;
+      y = x;
+      repeatedCount = 0;
+      while(input[y] === currentChar){
+        repeatedCount ++;
+        y ++; 
+      }
+      if(repeatedCount !== 0){
+        tempString += repeatedCount;
+        x += (repeatedCount -1);
+      }
+    }
+    if(tempString.length < input.length){
+      return tempString;
+    }
+    else{
+      return input;
+    }
   }
 };
 

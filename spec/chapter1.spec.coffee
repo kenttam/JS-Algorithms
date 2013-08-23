@@ -22,4 +22,9 @@ describe "Chapter 1", ->
   describe "ReplaceSpace", ->
     it "can replace all spaces in a string with %20", ->
       expect(Chapter1.ReplaceSpace("Mr John Smith")).toBe "Mr%20John%20Smith"
+  describe "StringCompression", ->
+    it "can perform basic string compression using the counts of repeated characters", ->
+      expect(Chapter1.StringCompression("aabcccccaaa")).toBe "a2b1c5a3"
+      expect(Chapter1.StringCompression("aabb")).toBe "aabb"
+
 
