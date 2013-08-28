@@ -42,4 +42,15 @@ describe "Chapter 1", ->
       expect(resultMatrix[0][0]).toBe expectedMatrix[0][0]
       expect(resultMatrix[0][1]).toBe expectedMatrix[0][1]
       expect(resultMatrix[0][2]).toBe expectedMatrix[0][2]
+  describe "ZeroOut", ->
+    it "can find all zeroes and change the entire row and column of the matrix to zeroes", ->
+      originalMatrix = [[1, 2, 0], [4, 5, 6], [7, 8, 0]]
+      expectedMatrix = [[0, 0 ,0], [4, 5, 0], [0, 0, 0]]
+      resultMatrix = Chapter1.ZeroOut(originalMatrix)
+      expect(resultMatrix[0][0]).toBe expectedMatrix[0][0]
+      expect(resultMatrix[0][1]).toBe expectedMatrix[0][1]
+      expect(resultMatrix[0][2]).toBe expectedMatrix[0][2]
+      expect(resultMatrix[1][0]).toBe expectedMatrix[1][0]
+      expect(resultMatrix[1][1]).toBe expectedMatrix[1][1]
+      expect(resultMatrix[1][2]).toBe expectedMatrix[1][2]
 

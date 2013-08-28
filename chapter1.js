@@ -162,6 +162,33 @@ var Chapter1 = {
       y = length - tempX - 1;
     } while(!(x == originalX && y == originalY))
     return matrix;
+  },
+  //Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0
+  ZeroOut: function(matrix){
+    var height = matrix.length,
+        width = matrix[0].length,
+        xZeroes = [],
+        yZeroes = [],
+        x, y;
+    for(x=0; x< width; x++){
+      for(y=0; y< height; y++){
+        if(matrix[x][y] == 0){
+          xZeroes.push(x);
+          yZeroes.push(y);
+        }
+      }
+    }
+    for(x = 0; x < xZeroes.length; x++){
+      for(y = 0; y < height; y++){
+        matrix[xZeroes[x]][y] = 0;
+      }    
+    }
+    for(y = 0; y < yZeroes.length; y++){
+      for(x = 0; x < width; x++){
+        matrix[x][yZeroes[y]] = 0;
+      }    
+    }
+    return matrix;
   }
 };
 
