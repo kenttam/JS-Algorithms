@@ -26,5 +26,20 @@ describe "Chapter 1", ->
     it "can perform basic string compression using the counts of repeated characters", ->
       expect(Chapter1.StringCompression("aabcccccaaa")).toBe "a2b1c5a3"
       expect(Chapter1.StringCompression("aabb")).toBe "aabb"
-
+  describe "RotateMatrix", ->
+    it "has a helper function that would swap four coordinates in 90 degree manner", ->
+      originalMatrix = [[1,2],[4,3]]
+      expectedMatrix = [[4,1],[3,2]]
+      resultMatrix = Chapter1.SwapTheFourCoordinates(originalMatrix, 0, 0)
+      expect(resultMatrix[0][0]).toBe expectedMatrix[0][0]
+      expect(resultMatrix[0][1]).toBe expectedMatrix[0][1]
+      expect(resultMatrix[1][0]).toBe expectedMatrix[1][0]
+      expect(resultMatrix[1][1]).toBe expectedMatrix[1][1]
+    it "can rotate an NxN Matrix (2D array) by 90 degrees)", ->
+      originalMatrix = [[1,2,3],[4,5,6],[7,8,9]]
+      expectedMatrix = [[7,4,1],[8,5,2],[9,6,3]]
+      resultMatrix = Chapter1.RotateMatrix(originalMatrix)
+      expect(resultMatrix[0][0]).toBe expectedMatrix[0][0]
+      expect(resultMatrix[0][1]).toBe expectedMatrix[0][1]
+      expect(resultMatrix[0][2]).toBe expectedMatrix[0][2]
 

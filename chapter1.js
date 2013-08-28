@@ -131,6 +131,37 @@ var Chapter1 = {
     else{
       return input;
     }
+  },
+  //Given an image represented by an NxN matrix, write an algorithm to rotate the image by 90 degrees. in place
+  RotateMatrix: function(matrix){
+    var x = 0,
+        y = 0,
+        currentXLimit = matrix.length - 1,
+        yLimit = Math.floor(matrix.length/2);
+    for(y = 0; y < yLimit; y++){
+      for(x = 0; x < currentXLimit; x++){
+        matrix = this.SwapTheFourCoordinates(matrix, x, y); 
+      }
+      currentXLimit -= 2;
+    }
+    return matrix;
+  },
+  //helper function for rotating the matrix
+  SwapTheFourCoordinates: function(matrix, x, y){
+    var originalX = x,
+        originalY = y,
+        length = matrix.length,
+        savedValue, nextIterationValue, tempX;
+    nextIterationValue = matrix[x][y];
+    do {
+      savedValue = matrix[y][length-x-1];
+      matrix[y][length-x-1] = nextIterationValue;
+      nextIterationValue = savedValue;
+      tempX = x;
+      x = y;
+      y = length - tempX - 1;
+    } while(!(x == originalX && y == originalY))
+    return matrix;
   }
 };
 
