@@ -53,4 +53,9 @@ describe "Chapter 1", ->
       expect(resultMatrix[1][0]).toBe expectedMatrix[1][0]
       expect(resultMatrix[1][1]).toBe expectedMatrix[1][1]
       expect(resultMatrix[1][2]).toBe expectedMatrix[1][2]
+  describe "IsRotation", ->
+    it "can tell if s1 is a substr of s2 with one call to isSubString", ->
+      s1 = "waterbottle"
+      s2 = "erbottlewat"
+      expect(Chapter1.IsRotation(s1, s2)).toBe true
 

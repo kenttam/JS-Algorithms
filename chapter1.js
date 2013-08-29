@@ -189,6 +189,14 @@ var Chapter1 = {
       }    
     }
     return matrix;
+  },
+  IsSubString: function(subString, fullString){
+    return fullString.indexOf(subString) > -1;    
+  },
+  //Given strings s1 and s2, write code to check if s2 is a rotation of s1 with one call to IsSubString
+  IsRotation: function(s1, s2){
+    var doubled = s1 + s1;
+    return this.IsSubString(s2, doubled);
   }
 };
 
