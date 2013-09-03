@@ -26,6 +26,19 @@ var chapter2 = {
       }
       current = current.next;
     }
+  },
+  removeDupesWithoutBuffer: function(node){
+    while(node.next != null){
+      var currentData = node.data,
+          tempNode = node;
+      while(tempNode.next != null){
+        if(tempNode.next.data == currentData){
+          tempNode.next = tempNode.next.next;
+        }
+        tempNode = tempNode.next;
+      }
+      node = node.next;
+    }
   }
 };
 
