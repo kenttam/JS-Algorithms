@@ -39,6 +39,18 @@ var chapter2 = {
       }
       node = node.next;
     }
+  },
+  findKthToLast: function(node, k){
+    var runner = node;
+    while(k-1 > 0){
+      runner = runner.next;
+      k--;
+    }
+    while(runner.next != null){
+      runner = runner.next;
+      node = node.next;
+    }
+    return node;
   }
 };
 

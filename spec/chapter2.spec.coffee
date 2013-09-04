@@ -24,3 +24,14 @@ describe "Chapter 2", ->
       result4 = result3.next
       result5 = result4.next
       expect(result5.data).toBe 5
+  describe "FindKthToLast", ->
+    it "can find the kth to last element of a singly linked list", ->
+      node1 = new Chapter2.Node(1)
+      node1.appendToTail(2)
+      node1.appendToTail(3)
+      node1.appendToTail(4)
+      node1.appendToTail(5)
+      node1.appendToTail(6)
+      expect(Chapter2.findKthToLast(node1, 2).data).toBe 5
+      expect(Chapter2.findKthToLast(node1, 4).data).toBe 3
+      
