@@ -34,4 +34,7 @@ describe "Chapter 2", ->
       node1.appendToTail(6)
       expect(Chapter2.findKthToLast(node1, 2).data).toBe 5
       expect(Chapter2.findKthToLast(node1, 4).data).toBe 3
-      
+  describe "LumaFibonocci", ->
+    it "can pint fibonacci between n and m and moo if power of 2", ->
+      result = Chapter2.Fibonacci(6, 200)
+      expect(result).toBe "moo 13 21 34 55 89 144 "

@@ -51,6 +51,29 @@ var chapter2 = {
       node = node.next;
     }
     return node;
+  },
+  Fibonacci: function(n, m){
+    var fibArray = [0, 1];
+    var powerArray = [1];
+    var x = fibArray.length;
+    var y, i, tempString = "";
+    for(x = fibArray.length - 1; fibArray[x] < m; x++){
+      fibArray.push(fibArray[x] + fibArray[x-1]);  
+    }
+    for(y = powerArray.length - 1; powerArray[y] < m; y++){
+      powerArray.push(powerArray[y] * 2);
+    }
+    for(i = 0; i < fibArray.length; i++){
+      if(fibArray[i] > n && fibArray[i] < m){
+        if(powerArray.indexOf(fibArray[i]) > -1){
+          tempString += "moo ";
+        }
+        else{
+          tempString += fibArray[i] + " " ;
+        }
+      } 
+    }
+    return tempString.toString();
   }
 };
 
