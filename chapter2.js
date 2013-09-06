@@ -74,6 +74,16 @@ var chapter2 = {
       } 
     }
     return tempString.toString();
+  },
+  deleteNode: function(node, needle){
+    var runner = node.next;
+    while(runner != null){
+      if(runner.data === needle){
+        node.next = runner.next; 
+      }
+      node = node.next;
+      runner = runner.next;
+    }
   }
 };
 

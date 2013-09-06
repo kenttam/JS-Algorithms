@@ -38,3 +38,15 @@ describe "Chapter 2", ->
     it "can pint fibonacci between n and m and moo if power of 2", ->
       result = Chapter2.Fibonacci(6, 200)
       expect(result).toBe "moo 13 21 34 55 89 144 "
+  describe "DeleteNode", ->
+    it "can delete a node", ->
+      nodeA = new Chapter2.Node("a")
+      nodeA.appendToTail("b")
+      nodeA.appendToTail("c")
+      nodeA.appendToTail("d")
+      nodeA.appendToTail("e")
+      Chapter2.deleteNode(nodeA, "c")
+      resultB = nodeA.next
+      resultD = resultB.next
+      expect(resultD.data).toBe "d"
+      
