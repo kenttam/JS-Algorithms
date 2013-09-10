@@ -84,6 +84,55 @@ var chapter2 = {
       node = node.next;
       runner = runner.next;
     }
+  },
+  partitionList: function(list, value){
+    var head = list,
+        temp = null;
+    while(list.next != null){
+      if(list.next.data < value){
+        temp = list.next;
+        list.next = list.next.next;
+        temp.next = head;
+        head = temp;
+      }
+      else{
+        list = list.next;
+      }
+    }
+    return head;
+  },
+  LinkedListAddition: function(list1, list2){
+    var carry = 0,
+        currentValue = 0,
+        sum = 0,
+        result = null;
+    while(list1 != null || list2 != null){
+      sum = carry;
+      if(list1 != null){
+        sum += list1.data; 
+      }
+      if(list2 != null){
+        sum += list2.data; 
+      }
+      currentValue = sum % 10;
+      if(sum > 9){
+        carry = 1;
+      }
+      else{
+        carry = 0;
+      }
+      if(result == null){
+        result = new chapter2.Node(currentValue);
+      }
+      else{
+        result.appendToTail(currentValue); 
+      }
+      if(list1 != null)
+        list1 = list1.next;
+      if(list2 != null)
+        list2 = list2.next;
+    }
+    return result;
   }
 };
 

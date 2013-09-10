@@ -49,4 +49,30 @@ describe "Chapter 2", ->
       resultB = nodeA.next
       resultD = resultB.next
       expect(resultD.data).toBe "d"
-      
+  describe "PartitionList", ->
+    it "can partition a list by a value", ->
+      node1 = new Chapter2.Node(1)
+      node1.appendToTail(10)
+      node1.appendToTail(100)
+      node1.appendToTail(50)
+      node1.appendToTail(20)
+      node1.appendToTail(120)
+      # 1, 10 ,20, 50, 100, 120 
+      result = Chapter2.partitionList(node1, 51)
+      expect(result.data).toBeLessThan(51)
+      expect(result.next.data).toBeLessThan(51)
+      expect(result.next.next.data).toBeLessThan(51)
+      expect(result.next.next.next.data).toBeLessThan(51)
+      expect(result.next.next.next.next.data).toBeGreaterThan(51)
+ describe "LinkedListAddition", ->
+   it "can add two lists that are represented by linked list", ->
+     node617 = new Chapter2.Node(7)
+     node617.appendToTail(1)
+     node617.appendToTail(6)
+     node295 = new Chapter2.Node(5)
+     node295.appendToTail(9)
+     node295.appendToTail(2)
+     result = Chapter2.LinkedListAddition(node617, node295)
+     expect(result.data).toBe 2
+     expect(result.next.data).toBe 1
+     expect(result.next.next.data).toBe 9
