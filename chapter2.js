@@ -133,7 +133,26 @@ var chapter2 = {
         list2 = list2.next;
     }
     return result;
+  },
+  FindBeginningOfLoop: function(node){
+    var arr = [],
+        head = node,
+        slowRunner = node,
+        fastRunner = node;
+    slowRunner = slowRunner.next;
+    fastRunner = fastRunner.next.next;
+    while(fastRunner.data != slowRunner.data){
+      slowRunner = slowRunner.next; 
+      fastRunner = fastRunner.next.next;
+    }
+    //collision
+    while(head.data != slowRunner.data){
+      slowRunner = slowRunner.next;
+      head = head.next;
+    }
+    return head;
   }
+
 };
 
 module.exports = chapter2;

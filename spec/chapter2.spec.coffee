@@ -76,3 +76,13 @@ describe "Chapter 2", ->
      expect(result.data).toBe 2
      expect(result.next.data).toBe 1
      expect(result.next.next.data).toBe 9
+ describe "FindBeginningOfLoop", ->
+   it "can find the beginning node of a looping linked list", ->
+     node = new Chapter2.Node("A")
+     node.appendToTail("B")
+     node.appendToTail("C")
+     node.appendToTail("D")
+     node.appendToTail("E")
+     node.next.next.next.next.next = node.next.next
+     result = Chapter2.FindBeginningOfLoop(node)
+     expect(result.data).toBe "C"
