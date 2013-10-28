@@ -29,4 +29,24 @@ describe "Chapter 3", ->
      expect(stack.pop()).toBe 2
      expect(stack.minimum()).toBe 5
      expect(stack.pop()).toBe 6
+  describe "SetOfStacks", ->
+    stack = new Chapter3.SetOfStacks()
+    stack.push(100)
+    stack.push(100)
+    stack.push(5)
+    stack.push(6)
+    stack.push(2)
+    expect(stack.pop()).toBe 2
+    expect(stack.pop()).toBe 6
+    expect(stack.pop()).toBe 5
+    expect(stack.pop()).toBe 100
+    expect(stack.pop()).toBe 100
+    stack.push(100)
+    stack.push(100)
+    stack.push(5)
+    stack.push(6)
+    stack.push(2)
+    stack.popAt(1)
+    expect(stack.pop()).toBe 2
+    expect(stack.pop()).toBe 5
      
