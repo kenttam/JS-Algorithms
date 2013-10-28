@@ -86,3 +86,33 @@ describe "Chapter 2", ->
      node.next.next.next.next.next = node.next.next
      result = Chapter2.FindBeginningOfLoop(node)
      expect(result.data).toBe "C"
+ describe "IsPalindrome", ->
+   it "can check if a linked list is a palindrome", ->
+     node = new Chapter2.Node("A")
+     node.appendToTail("B")
+     node.appendToTail("C")
+     node.appendToTail("B")
+     node.appendToTail("A")
+     expect(Chapter2.IsPalindrome(node)).toBe true
+     node3 = new Chapter2.Node("A")
+     node3.appendToTail("B")
+     node3.appendToTail("B")
+     node3.appendToTail("A")
+     expect(Chapter2.IsPalindrome(node3)).toBe true
+     node2 = new Chapter2.Node("A")
+     node2.appendToTail("B")
+     node2.appendToTail("C")
+     node2.appendToTail("C")
+     node2.appendToTail("C")
+     node2.appendToTail("A")
+     expect(Chapter2.IsPalindrome(node2)).toBe false
+ describe "ReverseList", ->
+   it "can reverse a linked list", ->
+     node = new Chapter2.Node("A")
+     node.appendToTail("B")
+     node.appendToTail("C")
+     reversed = Chapter2.reverse(node)
+     expect(reversed.data).toBe "C"
+     expect(reversed.next.data).toBe "B"
+     expect(reversed.next.next.data).toBe "A"
+

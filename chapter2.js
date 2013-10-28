@@ -151,6 +151,34 @@ var chapter2 = {
       head = head.next;
     }
     return head;
+  },
+  IsPalindrome: function(node){
+    var listValues = [];
+    var runner = node;
+    while(runner != null){
+      listValues.push(runner.data);
+      runner = runner.next;
+    }
+    while(listValues.length > 0){
+      if(node.data !== listValues.pop()){
+        return false;
+      } 
+      node = node.next;
+    }
+    return true;
+  },
+  reverse: function(node){
+    var temp = node.next.next,
+        fastRunner = node.next,
+        runner = node; 
+    while(fastRunner != null){
+      fastRunner.next = runner; 
+      runner = fastRunner;
+      fastRunner = temp;
+      if(temp != null)
+        temp = temp.next;
+    }
+    return runner;
   }
 
 };
