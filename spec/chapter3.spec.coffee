@@ -18,3 +18,15 @@ describe "Chapter 3", ->
       expect(stack.pop(2)).toBe 15
       expect(stack.pop(2)).toBe 14
       expect(stack.pop(3)).toBe 17
+  describe "StackMin", ->
+    describe "it can extract the min value, perform push and pop in constant time", ->
+     stack = new Chapter3.StackMin()
+     stack.push(100)
+     stack.push(5)
+     stack.push(6)
+     stack.push(2)
+     expect(stack.minimum()).toBe 2
+     expect(stack.pop()).toBe 2
+     expect(stack.minimum()).toBe 5
+     expect(stack.pop()).toBe 6
+     
