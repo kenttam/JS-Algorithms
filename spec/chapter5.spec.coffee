@@ -12,3 +12,6 @@ describe "Chapter 5", ->
       expect(Chapter5.toBinary(.5)).toBe "0.1"
       expect(Chapter5.toBinary(.72)).toBe false
       expect(Chapter5.toBinary(.125)).toBe "0.001"
+  describe "getPreviousNumber", ->
+    it "can find the next smallest number with the same amount of 1's", ->
+      expect(Chapter5.getPreviousNumber(5059)).toBe 5048

@@ -35,6 +35,27 @@ var chapter5 = {
       exponent++;
     }
     return false;
+  },
+  getPreviousNumber: function(number){
+    var oneMask = 1;
+    var numTrailingOne = 0;
+    var temp = number;
+    var zeroes = 0;
+    while((oneMask & temp) == 1){
+      numTrailingOne ++;
+      temp >>= 1;
+    }
+    while((oneMask & temp) == 0){
+      zeroes++;
+      temp >>= 1;
+    }
+    var p = numTrailingOne + zeroes;
+    var mask = ~(1 << (p));
+    number &= mask;
+    var submask = (~0) << (p);
+    number &= submask;
+    var trailingOnes = ~((~0) << (numTrailingOne + 1)) << (numTrailingOne + 1);
+    return number | trailingOnes;
   }
 };
 
