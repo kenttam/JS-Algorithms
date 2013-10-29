@@ -51,4 +51,19 @@ describe "Chapter 4", ->
       notBST.left.right = Chapter4.Tree(25)
       notBST.right = Chapter4.Tree(30)
       expect(Chapter4.isBST(notBST)).toBe false
-
+  describe "findSum", ->
+    it "can find the any paths that add to a given sum", ->
+      tree = new Chapter4.Tree(1)
+      tree.right = new Chapter4.Tree(3)
+      tree.right.right = new Chapter4.Tree(7)
+      tree.right.left = new Chapter4.Tree(6)
+      list = Chapter4.findSumPath(tree, 10)
+      expect(list.length).toBe 2
+      first_sum = 0
+      for element in list[0]
+        first_sum += element
+      expect(first_sum).toBe 10
+      second_sum = 0
+      for element in list[1]
+        second_sum += element
+      expect(second_sum).toBe 10

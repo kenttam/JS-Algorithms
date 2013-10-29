@@ -109,7 +109,30 @@ var chapter4 = {
         return false;
       }
    }
- }
+ },
+ findSumPath: function(tree, value, path, level, results){
+   if(tree == null){
+    return;
+   }
+   results = results || []; 
+   path = path || [];
+   level = level || 0;
+   path[level] = tree.data;
+   var sum = 0;
+   var temp = [];
+   for(var x = level; x >= 0;  x--){
+     sum += path[x];
+     temp.push(path[x]);
+     if(sum == value){
+       results.push(temp.slice(0, temp.length));
+     }
+   }
+
+   this.findSumPath(tree.left, value, path, level + 1, results);
+   this.findSumPath(tree.right, value, path, level + 1, results);
+
+   return results;
+  }
 
 };
 
