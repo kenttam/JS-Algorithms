@@ -92,19 +92,25 @@ var chapter4 = {
     }
     return result;
   },
-  isBST: function(tree){
+  isBST: function(tree, min, max){
+    min = min || -1000000;
+    max = max || 1000000;
     if(tree == null){
       return true;
     }
     else{
-      if((tree.left == null || tree.data > tree.left.data)
-          && (tree.right == null || tree.data < tree.right.data)
-          && this.isBST(tree.left) && this.isBST(tree.right))
-        return true;
-      else
+      if(tree.data < min || tree.data > max){
         return false;
+      }
+      if(this.isBST(tree.left, min, tree.data) && this.isBST(tree.right, tree.data, max)){
+        return true;
+      }
+      else{
+        return false;
+      }
    }
-         }
+ }
+
 };
 
 module.exports = chapter4;

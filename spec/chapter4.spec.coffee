@@ -46,4 +46,9 @@ describe "Chapter 4", ->
       expect(Chapter4.isBST(tree)).toBe true
       tree.left.left.data = 5
       expect(Chapter4.isBST(tree)).toBe false
+      notBST = Chapter4.Tree(20)
+      notBST.left = Chapter4.Tree(10)
+      notBST.left.right = Chapter4.Tree(25)
+      notBST.right = Chapter4.Tree(30)
+      expect(Chapter4.isBST(notBST)).toBe false
 
