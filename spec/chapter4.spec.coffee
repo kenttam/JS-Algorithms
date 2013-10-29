@@ -31,4 +31,12 @@ describe "Chapter 4", ->
       expect(tree.data < tree.right.data).toBe true
       expect(tree.left.left.left).toBe null
       expect(tree.right.right.right).toBe null
+  describe "MakeLinkList", ->
+    it "can create a linked list for each depth of a binary tree", ->
+      values = [1, 2, 3, 4, 5, 6, 7]
+      tree = Chapter4.makeBST(values)
+      list = Chapter4.makeLinkedList(tree)
+      expect(list[0].data).toBe 4
+      expect([list[1].data, list[1].next.data] ).toContain(2)
+      expect([list[1].data, list[1].next.data] ).toContain(6)
 

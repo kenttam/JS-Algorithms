@@ -1,3 +1,4 @@
+Chapter2 = require("./chapter2");
 var chapter4 = {
   Tree: function(value){
     var tree = {
@@ -59,7 +60,52 @@ var chapter4 = {
       tree.right = this.makeBST(values.slice(median + 1, values.length));
       return tree;
     }
+  },
+  makeLinkedList: function(tree){
+    var runner = tree;
+    var temp = [tree];
+    var result = [];
+    var x = 0;
+    while(temp.length > 0){
+      queue = temp;
+      temp = [];
+      while(queue.length > 0){
+        var current = queue.pop();
+        var runner = result[x];
+        if(result[x] == null){
+          result[x] = new Chapter2.Node(current.data);
+        }
+        else{
+          while(runner.next != null){
+            runner = runner.next;
+          }
+          runner.next = new Chapter2.Node(current.data);
+        }
+        if(current.left != null){
+          temp.push(current.left);
+        }
+        if(current.right != null){
+          temp.push(current.right);
+        }
+      }
+      x++;
+    }
+    return result;
   }
 };
 
 module.exports = chapter4;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
