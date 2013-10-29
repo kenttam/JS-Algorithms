@@ -23,3 +23,12 @@ describe "Chapter 4", ->
       Chapter4.connectNodes(d, c)
       expect(Chapter4.isConnected(a, b)).toBe true
       expect(Chapter4.isConnected(a, e)).toBe false
+  describe "Make binary search tree", ->
+    it "is a valid BST with minimal height", ->
+      values = [1, 2, 3, 4, 5, 6, 7]
+      tree = Chapter4.makeBST(values)
+      expect(tree.data > tree.left.data).toBe true
+      expect(tree.data < tree.right.data).toBe true
+      expect(tree.left.left.left).toBe null
+      expect(tree.right.right.right).toBe null
+
