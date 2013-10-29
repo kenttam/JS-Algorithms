@@ -91,7 +91,20 @@ var chapter4 = {
       x++;
     }
     return result;
-  }
+  },
+  isBST: function(tree){
+    if(tree == null){
+      return true;
+    }
+    else{
+      if((tree.left == null || tree.data > tree.left.data)
+          && (tree.right == null || tree.data < tree.right.data)
+          && this.isBST(tree.left) && this.isBST(tree.right))
+        return true;
+      else
+        return false;
+   }
+         }
 };
 
 module.exports = chapter4;

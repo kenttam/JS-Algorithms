@@ -39,4 +39,11 @@ describe "Chapter 4", ->
       expect(list[0].data).toBe 4
       expect([list[1].data, list[1].next.data] ).toContain(2)
       expect([list[1].data, list[1].next.data] ).toContain(6)
+  describe "IsBST", ->
+    it "can tell if a tree is a BST", ->
+      values = [1, 2, 3, 4, 5, 6, 7]
+      tree = Chapter4.makeBST(values)
+      expect(Chapter4.isBST(tree)).toBe true
+      tree.left.left.data = 5
+      expect(Chapter4.isBST(tree)).toBe false
 
